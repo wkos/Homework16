@@ -1,3 +1,5 @@
+package pl.wkos.homework161;
+
 public enum Season {
 //    SPRING("wiosna", new String[]{"marzec", "kwiecień", "maj"}),
 //    SUMMER("lato", new String[]{"czerwiec", "lipiec", "sierpień"}),
@@ -7,7 +9,7 @@ public enum Season {
 //    private final String description;
 //    private final String[] months;
 //
-//    Season(String description, String[] months) {
+//    pl.wkos.homework161.Season(String description, String[] months) {
 //        this.description = description;
 //        this.months = months;
 //    }

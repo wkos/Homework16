@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package pl.wkos.homework161;
 
 public class Main {
 

@@ -1,3 +1,5 @@
+package pl.wkos.homework161;
+
 import java.util.Scanner;
 
 public class SeasonUtilities {
