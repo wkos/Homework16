@@ -19,12 +19,16 @@ public enum Numbers {
         this.enNumber = enNumber;
     }
 
-    public String getPlNumber() {
+    public String getNumber(String language) {
+        if (Languages.isInLanguages(language)) {
+            switch (language) {
+                case "PL":
+                    return plNumber;
+                case "EN":
+                    return enNumber;
+            }
+        }
         return plNumber;
-    }
-
-    public String getEnNumber() {
-        return enNumber;
     }
 
     public static boolean isInNumbers(String number) {

@@ -1,8 +1,6 @@
 package pl.wkos.homework162;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +9,8 @@ public class Main {
         System.out.println("----------------------------");
 
         String language = CardUtilities.readLanguage();
-        List<String> packOfCardsInLanguage = CardUtilities.createPackOfCardsInLanguage(language, packOfCards);
+        List<String> packOfCardsInLanguage = CardUtilities.createPackOfCardsInLanguage(language, packOfCards,
+                Prepositions.valueOf(language).getDescripiton());
         CardUtilities.printAllCards(packOfCardsInLanguage);
     }
 }

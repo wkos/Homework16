@@ -14,11 +14,15 @@ public enum Faces {
         this.enFace = enFace;
     }
 
-    public String getPlFace() {
+    public String getFace(String language) {
+        if (Languages.isInLanguages(language)) {
+            switch (language) {
+                case "PL":
+                    return plFace;
+                case "EN":
+                    return enFace;
+            }
+        }
         return plFace;
-    }
-
-    public String getEnFace() {
-        return enFace;
     }
 }

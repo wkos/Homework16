@@ -19,10 +19,11 @@ public class CardUtilities {
     }
 
     public static String readLanguage() {
-        System.out.println("Podaj język");
+        System.out.println("Podaj język [PL, EN]");
         Scanner scanner = new Scanner(System.in);
         String languageVersion;
-        while (!Languages.isInLanguages((languageVersion = scanner.nextLine()).toUpperCase()));
+        while (!Languages.isInLanguages((languageVersion = scanner.nextLine()).toUpperCase()))
+            System.out.println("Niewłaściwy język. Wybierz jeszcze raz [PL, EN]");
         return languageVersion.toUpperCase();
     }
 
@@ -31,35 +32,17 @@ public class CardUtilities {
             System.out.println(item);
     }
 
-    public static List<String> createPackOfCardsInLanguage(String lanugage, List<String> packOfCards) {
+    public static List<String> createPackOfCardsInLanguage(String lanugage, List<String> packOfCards, String preposition) {
         List<String> packOfCardsInLanguage = new ArrayList<>();
-        switch (lanugage) {
-            case "PL": {
-                for (String item : packOfCards) {
-                    String[] suitsAndFaces = item.split(" ");
-                    String oneCard;
-                    if (Numbers.isInNumbers(suitsAndFaces[0]))
-                        oneCard = Numbers.valueOf(suitsAndFaces[0]).getPlNumber();
-                    else
-                        oneCard = Faces.valueOf(suitsAndFaces[0]).getPlFace();
-                    oneCard += " " + Suits.valueOf(suitsAndFaces[1]).getPlSuit();
-                    packOfCardsInLanguage.add(oneCard);
-                }
-                break;
-            }
-            case "EN": {
-                for (String item : packOfCards) {
-                    String[] suitsAndFaces = item.split(" ");
-                    String oneCard;
-                    if (Numbers.isInNumbers(suitsAndFaces[0]))
-                        oneCard = Numbers.valueOf(suitsAndFaces[0]).getEnNumber();
-                    else
-                        oneCard = Faces.valueOf(suitsAndFaces[0]).getEnFace();
-                    oneCard += " of " + Suits.valueOf(suitsAndFaces[1]).getEnSuit();
-                    packOfCardsInLanguage.add(oneCard);
-                }
-                break;
-            }
+        for (String item : packOfCards) {
+            String[] suitsAndFaces = item.split(" ");
+            String oneCard;
+            if (Numbers.isInNumbers(suitsAndFaces[0]))
+                oneCard = Numbers.valueOf(suitsAndFaces[0]).getNumber(lanugage);
+            else
+                oneCard = Faces.valueOf(suitsAndFaces[0]).getFace(lanugage);
+            oneCard += preposition + Suits.valueOf(suitsAndFaces[1]).getSuit(lanugage);
+            packOfCardsInLanguage.add(oneCard);
         }
         return packOfCardsInLanguage;
     }
