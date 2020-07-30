@@ -8,9 +8,8 @@ public class SeasonUtilities {
         String[] months = getSeasonMonths(season);
         String listOfMonths = "Miesiące (";
         int numberOfMonths = months.length;
-        for (int i = 0; i < numberOfMonths - 1; i++) {
+        for (int i = 0; i < numberOfMonths - 1; i++)
             listOfMonths += months[i] + ", ";
-        }
         listOfMonths += months[numberOfMonths - 1];
         System.out.println(listOfMonths);
     }
