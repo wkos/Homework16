@@ -5,7 +5,14 @@ import java.util.Scanner;
 public class SeasonUtilities {
     public static void printSeasonAndMonths(Season season) {
         System.out.println(season);
-        System.out.println(getSeasonMonths(season));
+        String[] months = getSeasonMonths(season);
+        String listOfMonths = "Miesiące (";
+        int numberOfMonths = months.length;
+        for (int i = 0; i < numberOfMonths - 1; i++) {
+            listOfMonths += months[i] + ", ";
+        }
+        listOfMonths += months[numberOfMonths - 1];
+        System.out.println(listOfMonths);
     }
 
     public static Season getSeasonFromConsole() {
@@ -17,9 +24,9 @@ public class SeasonUtilities {
         throw new IllegalArgumentException("Nie ma takiej pory roku");
     }
 
-    public static SeasonMonths getSeasonMonths(Season season) {
-        for (SeasonMonths item : SeasonMonths.values())
-            if (item.name().equals(season.name())) return item;
+    public static String[] getSeasonMonths(Season season) {
+        for (Season item : Season.values())
+            if (item.name().equals(season.name())) return item.getMonths();
         throw new IllegalArgumentException("Nie ma takiej pory roku");
     }
 }

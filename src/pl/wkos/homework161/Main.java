@@ -7,15 +7,12 @@ public class Main {
     public static void main(String[] args) {
         Season.printSeasons();
         System.out.println("Wybierz ulubioną porę roku:");
-        Season season = null;
+        Season season;
         try {
             season = SeasonUtilities.getSeasonFromConsole();
+            SeasonUtilities.printSeasonAndMonths(season);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-        SeasonUtilities.printSeasonAndMonths(season);
-
     }
-
-
 }
